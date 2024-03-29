@@ -49,7 +49,7 @@ user_pref("_user.js.parrot", "0200 syntax error: the parrot's definitely decease
 
 /** Disable using the OS's geolocation service and Mozilla's geo service **/
 
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref("geo.provider.network.url", "://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX] [HIDDEN PREF]
@@ -118,7 +118,7 @@ user_pref("app.normandy.api_url", "");
 //user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 //user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
-/** OTHER ***/
+/** OTHER **/
 
 /** Disable Captive Portal detection **/
 user_pref("captivedetect.canonicalURL", "");
@@ -129,15 +129,12 @@ user_pref("network.connectivity-service.enabled", false);
 
 /* ****************************************************************************** */
 
-/*** [SECTION 0400]: HTTPS / DNS / DoH / PROXY / SOCKS ***/
+/*** [SECTION 0400]: DNS / DoH / PROXY / SOCKS ***/
 user_pref("_user.js.parrot", "0400 syntax error: the parrot's not pinin' for the fjords!");
 
 /** Enable DNS-over-HTTPS (DoH)
 0=default, 2=increased (TRR (Trusted Recursive Resolver) first), 3=max (TRR only), 5=off **/
 user_pref("network.trr.mode", 5);
-
-/** Https Only mode **/
-user_pref("dom.security.https_only_mode", true);
 
 /** Disable using UNC (Uniform Naming Convention) paths **/
 user_pref("network.file.disable_unc_paths", true);
@@ -174,10 +171,17 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 
 /** Disable urlbar suggestions **/
-user_pref("browser.urlbar.addons.featureGate", false); // [FF115+]
-user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
-user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
-user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
+user_pref("browser.urlbar.addons.featureGate", false);
+user_pref("browser.urlbar.mdn.featureGate", false);
+user_pref("browser.urlbar.pocket.featureGate", false);
+user_pref("browser.urlbar.weather.featureGate", false); 
+user_pref("browser.urlbar.trending.featureGate", false);
+user_pref("browser.urlbar.clipboard.featureGate", false);
+
+/** Disable location bar making speculative connections **/
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+
+
 
 /* ****************************************************************************** */
 
@@ -225,6 +229,9 @@ user_pref("_user.js.parrot", "0800 syntax error: the parrot's snuffed it!");
 
 /** Disable WebRTC **/
 user_pref("media.peerconnection.enabled", false);
+
+/** Disable GMP (Gecko Media Plugins) **/
+user_pref("media.gmp-provider.enabled", false);
 
 /* ****************************************************************************** */
 
@@ -309,6 +316,13 @@ user_pref("privacy.resistFingerprinting.randomization.daily_reset.enabled", true
 /*** [SECTION 1200]: OPTIONAL OPSEC (Disk avoidance, application data isolation...) ***/
 user_pref("_user.js.parrot", "1200 syntax error: the parrot's taken 'is last bow");
 
+/** Disable disk cache **/
+user_pref("browser.cache.disk.enable", false);
+
+/** Disable storing extra session data
+* 0=everywhere, 1=unencrypted sites, 2=nowhere **/
+user_pref("browser.sessionstore.privacy_level", 2);
+
 /** Disable memory cache
 * capacity: -1=determine dynamically (default), 0=none, n=memory capacity in kibibytes **/
 user_pref("browser.cache.memory.enable", false);
@@ -324,9 +338,62 @@ user_pref("browser.urlbar.autoFill", false);
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 
-/** Disable location bar using search **/
+/** Enable location bar using search **/
 user_pref("keyword.enabled", true);
 
+/*** [SECTION 1300]: HTTPS (SSL/TLS / OCSP / CERTS / HPKP) ***/
+user_pref("_user.js.parrot", "1300 syntax error: the parrot's a stiff!");
+
+/** Https Only mode **/
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_pbm", true);
+//user_pref("dom.security.https_only_mode.upgrade_local", true);
+
+/** Require safe negotiation **/
+user_pref("security.ssl.require_safe_negotiation", true);
+
+/** Disable TLS1.3 0-RTT (round-trip time) **/
+user_pref("security.tls.enable_0rtt_data", false);
+
+/** OCSP (Online Certificate Status Protocol) **/
+
+/** Enforce OCSP fetching to confirm current validity of certificates
+0=disabled, 1=enabled (default), 2=enabled for EV certificates **/
+user_pref("security.OCSP.enabled", 1);
+
+/** Set OCSP fetch failures to hard-fail **/
+user_pref("security.OCSP.require", true);
+
+/** CERTS / HPKP (HTTP Public Key Pinning) **/
+
+/** Enable strict PKP (Public Key Pinning)
+0=disabled, 1=allow user MiTM (default; such as your antivirus), 2=strict **/
+user_pref("security.cert_pinning.enforcement_level", 2);
+
+/** Enable CRLite **/
+user_pref("security.remote_settings.crlite_filters.enabled", true);
+user_pref("security.pki.crlite_mode", 2);
+
+/** MIXED CONTENT **/
+
+/** Disable insecure passive content (such as images) on https pages **/
+user_pref("security.mixed_content.block_display_content", true);
+
+/** Disable HTTP background requests **/
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
+
+/** Display warning on the padlock for "broken security" **/
+user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+
+/** Display advanced information on Insecure Connection warning pages **/
+user_pref("browser.xul.error_pages.expert_bad_cert", true);
+
+/** [SECTION 1300]: REFERERS **/
+user_pref("_user.js.parrot", "1600 syntax error: the parrot rests in peace!");
+
+/** Control the amount of cross-origin information to send
+* 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port **/
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /* ****************************************************************************** */
 /* ****************************************************************************** */
