@@ -132,7 +132,7 @@ user_pref("network.connectivity-service.enabled", false);
 /*** [SECTION 0400]: HTTPS / DNS / DoH / PROXY / SOCKS ***/
 user_pref("_user.js.parrot", "0400 syntax error: the parrot's not pinin' for the fjords!");
 
-/** Enable DNS-over-HTTPS (DoH) **/
+/** Enable DNS-over-HTTPS (DoH)
 0=default, 2=increased (TRR (Trusted Recursive Resolver) first), 3=max (TRR only), 5=off **/
 user_pref("network.trr.mode", 5);
 
@@ -181,7 +181,7 @@ user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: fa
 
 /* ****************************************************************************** */
 
-*** [SECTION 0600]: PASSWORDS ***/
+/*** [SECTION 0600]: PASSWORDS ***/
 user_pref("_user.js.parrot", "0600 syntax error: the parrot is lost in the woods ?");
 
 /** Disable auto-filling username & password form fields **/
@@ -309,7 +309,7 @@ user_pref("privacy.resistFingerprinting.randomization.daily_reset.enabled", true
 /*** [SECTION 1200]: OPTIONAL OPSEC (Disk avoidance, application data isolation...) ***/
 user_pref("_user.js.parrot", "1200 syntax error: the parrot's taken 'is last bow");
 
-/** Disable memory cache **/
+/** Disable memory cache
 * capacity: -1=determine dynamically (default), 0=none, n=memory capacity in kibibytes **/
 user_pref("browser.cache.memory.enable", false);
 user_pref("browser.cache.memory.capacity", 0);
