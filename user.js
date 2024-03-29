@@ -260,7 +260,7 @@ user_pref("privacy.cpd.sessions", true);
 user_pref("privacy.cpd.offlineApps", true);
 user_pref("privacy.cpd.cookies", true);
 user_pref("privacy.cpd.passwords", true);
-user_pref("privacy.cpd.openWindows" true);
+user_pref("privacy.cpd.openWindows", true);
 user_pref("privacy.cpd.siteSettings", false);
 
 /** Reset default "Time range to clear" for "Clear Recent History" **/
