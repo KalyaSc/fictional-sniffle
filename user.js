@@ -388,8 +388,8 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 /** Display advanced information on Insecure Connection warning pages **/
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
-/** [SECTION 1300]: REFERERS **/
-user_pref("_user.js.parrot", "1600 syntax error: the parrot rests in peace!");
+/** [SECTION 1400]: REFERERS **/
+user_pref("_user.js.parrot", "1400 syntax error: the parrot rests in peace!");
 
 /** Control the amount of cross-origin information to send
 * 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port **/
