@@ -341,6 +341,8 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 /** Enable location bar using search **/
 user_pref("keyword.enabled", true);
 
+/* ****************************************************************************** */
+
 /*** [SECTION 1300]: HTTPS (SSL/TLS / OCSP / CERTS / HPKP) ***/
 user_pref("_user.js.parrot", "1300 syntax error: the parrot's a stiff!");
 
@@ -388,12 +390,60 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 /** Display advanced information on Insecure Connection warning pages **/
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
-/** [SECTION 1400]: REFERERS **/
+/* ****************************************************************************** */
+
+/*** [SECTION 1400]: REFERERS ***/
 user_pref("_user.js.parrot", "1400 syntax error: the parrot rests in peace!");
 
 /** Control the amount of cross-origin information to send
 * 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port **/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+/* ****************************************************************************** */
+
+/*** [SECTION 1500]: DOM (DOCUMENT OBJECT MODEL) ***/
+user_pref("_user.js.parrot", "1500 syntax error: the parrot's kicked the bucket!");
+
+/** Prevent scripts from moving and resizing open windows **/
+user_pref("dom.disable_window_move_resize", true);
+
+/* ****************************************************************************** */
+
+/*** [SECTION 1600]: MISCELLANEOUS ***/
+user_pref("_user.js.parrot", "1600 syntax error: the parrot's run down the curtain!");
+
+/** Remove temp files opened from non-PB windows with an external application **/
+user_pref("browser.download.start_downloads_in_tmp_dir", true);
+user_pref("browser.helperApps.deleteTempFileOnExit", true);
+
+/** Disable UITour backend so there is no chance that a remote page can use it **/
+user_pref("browser.uitour.enabled", false);
+user_pref("browser.uitour.url", "");
+
+/** Reset remote debugging to disabled **/
+user_pref("devtools.debugger.remote-enabled", false);
+
+/** Disable websites overriding Firefox's keyboard shortcuts
+* 0 (default) or 1=allow, 2=block 
+* to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts **/
+user_pref("permissions.default.shortcuts", 2);
+
+/** Remove special permissions for certain mozilla domains **/
+user_pref("permissions.manager.defaultsUrl", "");
+
+/** Remove webchannel whitelist **/
+user_pref("webchannel.allowObject.urlWhitelist", "");
+
+/** Use Punycode in Internationalized Domain Names to eliminate possible spoofing **/
+user_pref("network.IDN_show_punycode", true);
+
+/** Enforce PDFJS, disable PDFJS scripting **/
+user_pref("pdfjs.disabled", false);
+user_pref("pdfjs.enableScripting", false);
+
+/** Disable middle click on new tab button opening URLs or searches using clipboard **/
+user_pref("browser.tabs.searchclipboardfor.middleclick", false); 
+
 
 /* ****************************************************************************** */
 /* ****************************************************************************** */
