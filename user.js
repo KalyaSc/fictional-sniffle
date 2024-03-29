@@ -49,7 +49,7 @@ user_pref("_user.js.parrot", "0200 syntax error: the parrot's definitely decease
 
 /** Disable using the OS's geolocation service and Mozilla's geo service **/
 
-user_pref("geo.provider.network.url", "://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX] [HIDDEN PREF]
