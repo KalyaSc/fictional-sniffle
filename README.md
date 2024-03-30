@@ -64,8 +64,8 @@ user_pref("media.gmp-provider.enabled", false);
 ```
 
 # Credits
-
-Credits
 https://github.com/arkenfox/user.js
+
 https://github.com/pyllyukko/user.js/
+
 https://wiki.archlinux.org/title/Firefox/Privacy
