@@ -47,7 +47,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 /*** [SECTION 0200]: GEOLOCATION ***/
 user_pref("_user.js.parrot", "0200 syntax error: the parrot's definitely deceased!");
 
-/** Disable using the OS's geolocation service and Mozilla's geo service **/
+/** Disable using the OS's geolocation service and uses Mozilla's geo service **/
 
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
