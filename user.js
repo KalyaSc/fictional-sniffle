@@ -366,6 +366,23 @@ user_pref("security.OCSP.enabled", 1);
 /** Set OCSP fetch failures to hard-fail **/
 user_pref("security.OCSP.require", true);
 
+/** Disable non-modern cipher suites **/
+user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false);
+user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false);
+user_pref("security.ssl3.ecdhe_rsa_aes_128_sha", false);
+user_pref("security.ssl3.ecdhe_rsa_aes_256_sha", false);
+user_pref("security.ssl3.rsa_aes_128_gcm_sha256", false);
+user_pref("security.ssl3.rsa_aes_256_gcm_sha384", false);
+user_pref("security.ssl3.rsa_aes_128_sha", false);
+user_pref("security.ssl3.rsa_aes_256_sha", false); 
+
+/** Control TLS versions **/
+user_pref("security.tls.version.min", 3); // [DEFAULT: 3]
+user_pref("security.tls.version.max", 4);
+
+/** Disable SSL session IDs **/
+user_pref("security.ssl.disable_session_identifiers", true);
+
 /** CERTS / HPKP (HTTP Public Key Pinning) **/
 
 /** Enable strict PKP (Public Key Pinning)
