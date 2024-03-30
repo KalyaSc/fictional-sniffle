@@ -467,13 +467,12 @@ user_pref("browser.tabs.searchclipboardfor.middleclick", false);
 /* ****************************************************************************** */
 user_pref("_user.js.parrot", "9000 syntax error: Nope everything is fine ! You damn parrot !");
 /*** [SECTION 5500, 6000, 7000, 8000, 9000]: OPTIONAL HARDENING ***/
-/*** Needs more investigation if I can implement them... Like Ion / Baseline JIT 
-Again JS exploits, disable webAssembly... Those settings could cause breakage and 
-Performance issues
-TODO 
-disable non-modern cipher suites
-control TLS versions
-disable SSL session IDs [FF36+]
+/*** Needs more investigation if I can implement them... Those settings could cause breakage and 
+Performance issues.
+
+- Like Ion / Baseline JIT 
+- Disable webAssembly... 
+
 ...
  ***/
 
